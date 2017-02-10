@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.gomeplus.im.dispatcher.protobuf;
+
+option java_multiple_files = false;
+
+message CommonMsg {
+    int32 requestType = 1;  //请求类型(1:汇报资源  2:拉取资源)
+    string ipPort = 2;      //服务器的ipPort  如:  "127.0.0.1:8001"
+    bool isChange = 3;      //是否发生变化(返回给客户端的状态,无变化时不需要关心，有变化时读取msg字段为更新后的服务器资源列表)
+    string msg = 4;         //json扩展协议内容(原来请求拉取JSON协议内容) 汇报时如:"{"type": 1,"ipPort": "127.0.0.1:88770","cmd": [123,456]}"  ;拉取时如:"{"type":2}"
+}
