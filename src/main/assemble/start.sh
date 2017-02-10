@@ -14,7 +14,7 @@ if [ ! -n "$1" ] ;then
 	echo "default port is: $port"
 fi
 
-JAVA_OPTS="-Xms512m -Xmx1024m -Xmn512m"
+JAVA_OPTS="-server -Xms512m -Xmx1024m -Xmn256m"
 
 echo "start im-dispatcher port is: $port"
 
